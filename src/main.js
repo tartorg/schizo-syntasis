@@ -6,6 +6,13 @@ import store from './store'
 import 'aframe'
 
 Vue.config.productionTip = false
+Vue.config.ignoredElements = [
+  'a-scene',
+  'a-assets',
+  'a-asset-item',
+  'a-entity',
+  'a-camera',
+]
 
 new Vue({
   router,
