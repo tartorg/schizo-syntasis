@@ -12,6 +12,7 @@ Vue.config.ignoredElements = [
   'a-asset-item',
   'a-entity',
   'a-camera',
+  'a-sky',
 ]
 
 new Vue({
