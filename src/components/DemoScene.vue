@@ -1,5 +1,9 @@
 <template>
-  <Room :items="room1.items" :positions="mockedPosition" />
+  <Room
+    :items="room1.items"
+    :positions="mockedPosition"
+    :room-size="[20, 20, 20]"
+  />
 </template>
 
 <script>
@@ -29,7 +33,7 @@ export default {
   },
   computed: {
     mockedPosition() {
-      return this.room1.items.map((v, i) => [i * 10, i * 10, i * 10])
+      return this.room1.items.map(() => Array(3).fill(null).map(Math.random))
     },
   },
 }
