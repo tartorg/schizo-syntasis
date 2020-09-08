@@ -21,8 +21,8 @@ export default {
   },
   computed: {
     mappedPosition() {
-      const [x, y] = this.roomSize
-      const minCoord = [-x / 2, -y / 2, 0]
+      const [x, y, z] = this.roomSize
+      const minCoord = [-x / 2, -y / 2, -z / 2]
 
       return this.positions.map((obj) =>
         obj.map((pos, axis) => pos * this.roomSize[axis] + minCoord[axis])

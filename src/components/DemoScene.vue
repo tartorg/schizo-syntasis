@@ -2,7 +2,7 @@
   <Room
     :items="room1.items"
     :positions="mockedPosition"
-    :room-size="[20, 20, 20]"
+    :room-size="[50, 50, 50]"
   />
 </template>
 
