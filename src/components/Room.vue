@@ -1,32 +1,35 @@
 <template>
   <a-scene>
-    <Model
-      v-for="(itemPath, index) in items"
+    <a-entity
+      v-for="(itemPath, index) in itemsPath"
       :key="itemPath"
-      :path="itemPath"
-      :position="mappedPosition[index]"
-    />
+      :gltf-model="`url(${itemPath})`"
+      :position="itemsPosition[index]"
+    ></a-entity>
+
     <a-sky color="#000" />
   </a-scene>
 </template>
 
 <script>
-import Model from './Model'
+import { publicPath } from '../../vue.config'
 
 export default {
   name: 'Room',
   props: ['items', 'positions', 'roomSize'],
-  components: {
-    Model,
-  },
   computed: {
-    mappedPosition() {
+    itemsPosition() {
       const [x, y, z] = this.roomSize
       const minCoord = [-x / 2, -y / 2, -z / 2]
 
       return this.positions.map((obj) =>
-        obj.map((pos, axis) => pos * this.roomSize[axis] + minCoord[axis])
+        obj
+          .map((pos, axis) => pos * this.roomSize[axis] + minCoord[axis])
+          .join(' ')
       )
+    },
+    itemsPath() {
+      return this.items.map((item) => `${publicPath}/models/${item}`)
     },
   },
 }
