@@ -23,8 +23,7 @@ export default {
   props: ['items', 'positions', 'roomSize', 'backgroundVideo'],
   computed: {
     itemsPosition() {
-      const [x, y, z] = this.roomSize
-      const minCoord = [-x / 2, -y / 2, -z / 2]
+      const minCoord = this.roomSize.map((axis) => -axis / 2)
 
       return this.positions.map((obj) =>
         obj
