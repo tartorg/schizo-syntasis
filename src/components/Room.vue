@@ -1,13 +1,17 @@
 <template>
   <a-scene>
+    <a-assets>
+      <video :id="backgroundVideo" autoplay loop :src="videoPath"></video>
+    </a-assets>
+
     <a-entity
       v-for="(itemPath, index) in itemsPath"
       :key="itemPath"
-      :gltf-model="`url(${itemPath})`"
+      :gltf-model="itemPath"
       :position="itemsPosition[index]"
     ></a-entity>
 
-    <a-sky color="#000" />
+    <a-videosphere :src="`#${backgroundVideo}`"></a-videosphere>
   </a-scene>
 </template>
 
@@ -16,7 +20,7 @@ import { publicPath } from '../../vue.config'
 
 export default {
   name: 'Room',
-  props: ['items', 'positions', 'roomSize'],
+  props: ['items', 'positions', 'roomSize', 'backgroundVideo'],
   computed: {
     itemsPosition() {
       const [x, y, z] = this.roomSize
@@ -29,7 +33,10 @@ export default {
       )
     },
     itemsPath() {
-      return this.items.map((item) => `${publicPath}/models/${item}`)
+      return this.items.map((item) => `url(${publicPath}/assets/${item})`)
+    },
+    videoPath() {
+      return `${publicPath}/assets/${this.backgroundVideo}`
     },
   },
 }

@@ -13,6 +13,7 @@ Vue.config.ignoredElements = [
   'a-entity',
   'a-camera',
   'a-sky',
+  'a-videosphere',
 ]
 
 new Vue({

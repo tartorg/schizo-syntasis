@@ -3,6 +3,7 @@
     :items="room1.items"
     :positions="mockedPosition"
     :room-size="[50, 50, 50]"
+    background-video="room1/IMG_1915.MOV"
   />
 </template>
 
