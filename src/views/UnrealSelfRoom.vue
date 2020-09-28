@@ -4,7 +4,11 @@
     :positions="mockedPosition"
     :room-size="[50, 50, 50]"
     background-video="room1/IMG_1915.MOV"
-  />
+  >
+    <a-entity
+      particle-system="preset: rain; velocityValue: 0 -25 0; accelerationValue: 0 0 0; opacity: 0.6;"
+    ></a-entity>
+  </Room>
 </template>
 
 <script>

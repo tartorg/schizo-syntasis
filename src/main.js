@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 
 import 'aframe'
+import 'aframe-particle-system-component'
 
 Vue.config.productionTip = false
 Vue.config.ignoredElements = [

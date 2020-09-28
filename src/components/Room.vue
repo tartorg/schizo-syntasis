@@ -11,6 +11,8 @@
       :position="itemsPosition[index]"
     ></a-entity>
 
+    <slot></slot>
+
     <a-videosphere :src="`#${backgroundVideo}`"></a-videosphere>
   </a-scene>
 </template>
