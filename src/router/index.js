@@ -10,6 +10,14 @@ const routes = [
     name: 'Home',
     component: Home,
   },
+  {
+    path: '/unreal-self',
+    name: 'UnrealSelfRoom',
+    component: () =>
+      import(
+        /* webpackChunkName: "unreal-self" */ '../views/UnrealSelfRoom.vue'
+      ),
+  },
 ]
 
 const router = new VueRouter({
