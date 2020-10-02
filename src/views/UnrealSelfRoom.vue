@@ -3,11 +3,19 @@
     :items="items"
     :positions="mockedPosition"
     :room-size="[50, 50, 50]"
-    background-video="room1/IMG_1915.MOV"
+    background-video="unreal-self/bg-video-small.mp4"
   >
     <a-entity
       particle-system="preset: rain; velocityValue: 0 -25 0; accelerationValue: 0 0 0; opacity: 0.6;"
     ></a-entity>
+    <a-plane
+      rotation="-90 0 0"
+      width="1000"
+      height="1000"
+      color="#fff"
+      metalness="1"
+      roughness="1"
+    ></a-plane>
   </Room>
 </template>
 
@@ -22,15 +30,15 @@ export default {
   data() {
     return {
       items: [
-        'room1/unreal1.glb',
-        'room1/unreal2.glb',
-        'room1/unreal3.glb',
-        'room1/unreal4.glb',
-        'room1/unreal5.glb',
-        'room1/unreal6.glb',
-        'room1/unreal7.glb',
-        'room1/unreal8.glb',
-        'room1/unreal9.glb',
+        'unreal-self/unreal1(edit).glb',
+        'unreal-self/unreal2(edit).glb',
+        'unreal-self/unreal3(edit).glb',
+        'unreal-self/unreal4.glb',
+        'unreal-self/unreal5.glb',
+        'unreal-self/unreal6.glb',
+        'unreal-self/unreal7.glb',
+        'unreal-self/unreal8.glb',
+        'unreal-self/unreal9.glb',
       ],
     }
   },
