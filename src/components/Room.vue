@@ -1,7 +1,7 @@
 <template>
   <a-scene>
     <a-assets>
-      <video :id="backgroundVideo" autoplay loop :src="videoPath"></video>
+      <video :id="backgroundVideo" muted autoplay loop :src="videoPath"></video>
     </a-assets>
 
     <a-entity
