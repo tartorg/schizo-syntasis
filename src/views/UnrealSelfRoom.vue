@@ -2,7 +2,7 @@
   <Room
     :items="items"
     :positions="mockedPosition"
-    :room-size="[50, 50, 50]"
+    :room-size="[30, 10, 30]"
     background-video="unreal-self/bg-video-small.mp4"
   >
     <a-entity
@@ -31,8 +31,8 @@ export default {
     return {
       items: [
         'unreal-self/unreal1(edit).glb',
-        'unreal-self/unreal2(edit).glb',
-        'unreal-self/unreal3(edit).glb',
+        'unreal-self/unreal2(newresized).glb',
+        // 'unreal-self/unreal3(edit).glb',
         'unreal-self/unreal4.glb',
         'unreal-self/unreal5.glb',
         'unreal-self/unreal6.glb',

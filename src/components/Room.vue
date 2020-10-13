@@ -26,6 +26,7 @@ export default {
   computed: {
     itemsPosition() {
       const minCoord = this.roomSize.map((axis) => -axis / 2)
+      minCoord[1] = 0 // Up above ground
 
       return this.positions.map((obj) =>
         obj
