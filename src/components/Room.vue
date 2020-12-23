@@ -1,7 +1,14 @@
 <template>
   <a-scene>
     <a-assets>
-      <video :id="backgroundVideo" muted autoplay loop :src="videoPath"></video>
+      <video
+        :id="backgroundVideo"
+        autoplay
+        loop
+        subtitles="backgroundVideo"
+        description="background video"
+        :src="videoPath"
+      ></video>
     </a-assets>
 
     <a-entity
@@ -26,7 +33,6 @@ export default {
   computed: {
     itemsPosition() {
       const minCoord = this.roomSize.map((axis) => -axis / 2)
-      minCoord[1] = 0 // Up above ground
 
       return this.positions.map((obj) =>
         obj
@@ -35,7 +41,13 @@ export default {
       )
     },
     itemsPath() {
-      return this.items.map((item) => `url(${publicPath}/assets/${item})`)
+      return this.items.map((item) => {
+        if (item.path) {
+          return `url(${publicPath}/assets/${item.path})`
+        } else {
+          return `url(${publicPath}/assets/${item})`
+        }
+      })
     },
     videoPath() {
       return `${publicPath}/assets/${this.backgroundVideo}`

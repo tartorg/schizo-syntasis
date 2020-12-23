@@ -12,7 +12,7 @@
       rotation="-90 0 0"
       width="1000"
       height="1000"
-      color="#fff"
+      color="#000"
       metalness="1"
       roughness="1"
     ></a-plane>
@@ -21,6 +21,7 @@
 
 <script>
 import Room from '../components/Room'
+import { getRandomInt } from '../utils/randomGenerator'
 
 export default {
   name: 'UnrealSelfRoom',
@@ -32,7 +33,7 @@ export default {
       items: [
         'unreal-self/unreal1(edit).glb',
         'unreal-self/unreal2(newresized).glb',
-        // 'unreal-self/unreal3(edit).glb',
+        { path: 'unreal-self/unreal3(edit).glb', base: 0.3 },
         'unreal-self/unreal4.glb',
         'unreal-self/unreal5.glb',
         'unreal-self/unreal6.glb',
@@ -44,7 +45,23 @@ export default {
   },
   computed: {
     mockedPosition() {
-      return this.items.map(() => Array(3).fill(null).map(Math.random))
+      return this.items.map((item) => {
+        if (item.base) {
+          return Array(3)
+            .fill(null)
+            .map((_, index) => {
+              if (index === 1) {
+                return getRandomInt(item.base, 1)
+              }
+              return getRandomInt(0, 1)
+            })
+        }
+        return Array(3)
+          .fill(null)
+          .map((_, index) =>
+            index === 1 ? getRandomInt(0, 0.3) : getRandomInt(0, 1)
+          )
+      })
     },
   },
 }

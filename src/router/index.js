@@ -18,6 +18,14 @@ const routes = [
         /* webpackChunkName: "unreal-self" */ '../views/UnrealSelfRoom.vue'
       ),
   },
+  {
+    path: '/self-emptiness',
+    name: 'SelfEmptinessRoom',
+    component: () =>
+      import(
+        /* webpackChunkName: "unreal-self" */ '../views/SelfEmptinessRoom.vue'
+      ),
+  },
 ]
 
 const router = new VueRouter({

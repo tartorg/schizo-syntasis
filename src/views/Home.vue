@@ -1,7 +1,10 @@
 <template>
   <div>
     <h1>Schizo Synthesis (Under Construction)</h1>
-    <router-link to="/unreal-self">Unreal Self</router-link>
+    <div class="list">
+      <router-link to="/unreal-self">Unreal Self</router-link>
+      <router-link to="/self-emptiness">Self Emptiness</router-link>
+    </div>
   </div>
 </template>
 
@@ -10,3 +13,10 @@ export default {
   name: 'Home',
 }
 </script>
+
+<style lang="scss">
+.list {
+  display: flex;
+  flex-direction: column;
+}
+</style>
