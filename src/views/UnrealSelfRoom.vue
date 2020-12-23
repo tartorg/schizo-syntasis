@@ -8,14 +8,6 @@
     <a-entity
       particle-system="preset: rain; velocityValue: 0 -25 0; accelerationValue: 0 0 0; opacity: 0.6;"
     ></a-entity>
-    <a-plane
-      rotation="-90 0 0"
-      width="1000"
-      height="1000"
-      color="#000"
-      metalness="1"
-      roughness="1"
-    ></a-plane>
   </Room>
 </template>
 
@@ -33,7 +25,7 @@ export default {
       items: [
         'unreal-self/unreal1(edit).glb',
         'unreal-self/unreal2(newresized).glb',
-        { path: 'unreal-self/unreal3(edit).glb', base: 0.3 },
+        { path: 'unreal-self/unreal3(edit).glb', base: 3 },
         'unreal-self/unreal4.glb',
         'unreal-self/unreal5.glb',
         'unreal-self/unreal6.glb',
@@ -51,15 +43,15 @@ export default {
             .fill(null)
             .map((_, index) => {
               if (index === 1) {
-                return getRandomInt(item.base, 1)
+                return getRandomInt(0, 100) / 100 + item.base
               }
-              return getRandomInt(0, 1)
+              return getRandomInt(0, 100) / 100
             })
         }
         return Array(3)
           .fill(null)
           .map((_, index) =>
-            index === 1 ? getRandomInt(0, 0.3) : getRandomInt(0, 1)
+            index === 1 ? getRandomInt(0, 30) / 100 : getRandomInt(0, 100) / 100
           )
       })
     },

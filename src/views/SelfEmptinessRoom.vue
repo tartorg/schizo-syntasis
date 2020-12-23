@@ -43,7 +43,7 @@ export default {
       return this.items.map(() => {
         return Array(3)
           .fill(null)
-          .map(() => getRandomInt(0, 1))
+          .map(() => getRandomInt(0, 100) / 100)
       })
     },
     videoPath() {

@@ -26,6 +26,14 @@ const routes = [
         /* webpackChunkName: "unreal-self" */ '../views/SelfEmptinessRoom.vue'
       ),
   },
+  {
+    path: '/other-negative',
+    name: 'OtherNegativeRoom',
+    component: () =>
+      import(
+        /* webpackChunkName: "unreal-self" */ '../views/OtherNegativeRoom.vue'
+      ),
+  },
 ]
 
 const router = new VueRouter({

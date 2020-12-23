@@ -4,6 +4,7 @@
     <div class="list">
       <router-link to="/unreal-self">Unreal Self</router-link>
       <router-link to="/self-emptiness">Self Emptiness</router-link>
+      <router-link to="/other-negative">Other Negative</router-link>
     </div>
   </div>
 </template>
