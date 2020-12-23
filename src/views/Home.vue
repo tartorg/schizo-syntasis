@@ -5,6 +5,7 @@
       <router-link to="/unreal-self">Unreal Self</router-link>
       <router-link to="/self-emptiness">Self Emptiness</router-link>
       <router-link to="/other-negative">Other Negative</router-link>
+      <router-link to="/dream-fact">Dream Fact</router-link>
     </div>
   </div>
 </template>

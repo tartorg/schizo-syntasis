@@ -23,7 +23,7 @@ const routes = [
     name: 'SelfEmptinessRoom',
     component: () =>
       import(
-        /* webpackChunkName: "unreal-self" */ '../views/SelfEmptinessRoom.vue'
+        /* webpackChunkName: "self-emptiness" */ '../views/SelfEmptinessRoom.vue'
       ),
   },
   {
@@ -31,8 +31,14 @@ const routes = [
     name: 'OtherNegativeRoom',
     component: () =>
       import(
-        /* webpackChunkName: "unreal-self" */ '../views/OtherNegativeRoom.vue'
+        /* webpackChunkName: "other-negative" */ '../views/OtherNegativeRoom.vue'
       ),
+  },
+  {
+    path: '/dream-fact',
+    name: 'DreamFactRoom',
+    component: () =>
+      import(/* webpackChunkName: "dream-fact" */ '../views/DreamFactRoom.vue'),
   },
 ]
 
