@@ -24,41 +24,46 @@
       <a-videosphere :src="`#${backgroundVideo}`"></a-videosphere>
     </a-scene>
     <div class="outerInterface">
+      <p class="questionsText">{{ question }}</p>
       <input class="bigInput" />
-      <p class="questionsText">{{ questionsText }}</p>
     </div>
   </div>
 </template>
 
 <style scoped>
 .outerInterface {
-  position: absolute;
   width: 100%;
-  height: 0%;
-  display: flex;
-  bottom: 0;
+  height: 100%;
 }
 
 .bigInput {
-  width: 100%;
+  width: 90%;
   height: 20px;
   font-size: 20px;
   padding: 20px;
   margin: 30px;
   margin-bottom: 10px;
-  align-self: flex-end;
   background: transparent;
   color: white;
   border: 1px solid white;
+  position: fixed;
+  bottom: 0px;
 }
 .bigInput:focus {
   outline-width: 0;
 }
 
 .questionsText {
-  align-self: flex-start;
-  width: 100%;
+  width: 50%;
   color: white;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  padding: 30px;
+  height: 50px;
+  position: fixed;
+  cursor: grab;
+  user-select: none;
 }
 </style>
 
@@ -69,6 +74,11 @@ import questionsText from '!raw-loader!../questions/list.txt'
 export default {
   name: 'Room',
   props: ['items', 'positions', 'roomSize', 'backgroundVideo'],
+  data: function () {
+    return {
+      question: '',
+    }
+  },
   computed: {
     itemsPosition() {
       const minCoord = this.roomSize.map((axis) => -axis / 2)
@@ -91,8 +101,17 @@ export default {
     videoPath() {
       return `${publicPath}/assets/${this.backgroundVideo}`
     },
-    questions() {
-      return questionsText
+  },
+  created: function () {
+    this.updateQuestions()
+  },
+  methods: {
+    updateQuestions() {
+      const questionLists = questionsText.split('\n')
+      setInterval(() => {
+        const question = questionLists.pop()
+        this.question = question
+      }, 1000)
     },
   },
 }
