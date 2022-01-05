@@ -18,6 +18,11 @@
         :gltf-model="itemPath"
         :position="itemsPosition[index]"
       ></a-entity>
+      <a-entity
+        scale="10 10 10"
+        baseline="bottom"
+        :text="`value: ${question}`"
+      ></a-entity>
 
       <slot></slot>
 
@@ -111,7 +116,7 @@ export default {
       setInterval(() => {
         const question = questionLists.pop()
         this.question = question
-      }, 1000)
+      }, 2000)
     },
   },
 }
